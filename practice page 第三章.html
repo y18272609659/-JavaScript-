@@ -1,0 +1,138 @@
+<!DOCTYPE>
+<html lang="en">
+    <head>
+        <meta charset="ut-f-8">
+        <title>shopping list</title>
+        <style>
+            body{
+                color:white;
+                background: black;
+            }
+            #purchases{
+                border:1px solid white;
+                background-color:#333;
+                color: #cccccc;
+                padding:2em;
+            }
+            #purchases li{
+                font-weight:bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>What to buy</h1>
+        <p title="a gentle reminder" id="Oh!You are right!">don`t forget to buy this stuff.</p>
+        <ul id="purchases">
+            <li>A tin of beans</li>
+            <li class="sale">Cheese</li>
+            <li class="sale important">Milk</li>
+        </ul>
+        <br/>
+        <p>This is just a test . </p>
+        <script>
+
+            var shopping = document.getElementById("purchases");
+
+            function getElementsByClassName(shopping,sales){
+                if(shopping.getElementsByClassName){
+                    return shopping.getElementsByClassName(sales);
+                }else{
+                    var results = Array();
+                    var elems = shopping.getElementsByTagName("*");
+                    for(var i=0 ; i<elems.length ; i++){
+                        if(elems[i].className.indexOf(sales) !== -1){
+                            results[results.length] = elems[i];
+                        }
+                    }
+                    return results;
+                }
+            }
+            var SALES = getElementsByClassName(shopping,"sale");
+
+            /*
+            alert(typeof document.getElementById("purchase"));
+            for(var i = 0; i<document.getElementsByTagName("li").length; i++){
+                alert(typeof document.getElementsByTagName("li")[i]);
+            }
+            alert(document.getElementsByTagName("*").length);这一行网页显示“13”，不懂什么意思...包含13个元素...？？
+
+            var shopping = document.getElementById("purchases");
+            var items = shopping.getElementsByTagName("*");
+            alert(items.length);
+            for(var i = 0; i<items.length; i++){
+                alert(typeof items[i]);
+            }
+            alert(document.getElementsByClassName("sale").length);
+
+            var shopping = document.getElementById("purchases");
+            var sales =shopping.getElementsByClassName("sale");
+            alert(sales.length);
+
+            var paras = document.getElementsByTagName("p");
+            for(var i = 0; i < paras.length; i++){
+                alert(paras[i].getAttribute("title"));
+                alert(paras[i].getAttribute("id"));
+            }
+
+            var paras = document.getElementsByTagName("p");
+            for(var i = 0; i< paras.length ; i++){
+                var title_text = paras[i].getAttribute("title");
+                if(title_text !== null){
+                    alert(title_text);
+                }
+            }
+            上面这段代码的简化版本是：
+            var paras = document.getElementsByTagName("p");
+            for(var i = 0; i< paras.length ; i++){
+                var title_text = paras[i].getAttribute("title");
+                if(title_text） alert(title_text);
+            }
+            删去了“ ！==null ” 和 一对花括号。
+
+            var shopping = document.getElementById("purchases");
+            if(shopping.getAttribute("title")){
+                alert(shopping.getAttribute("title"));
+            }
+            else{
+                shopping.setAttribute("title","a list of goods");
+                alert(shopping.getAttribute("title"));
+            }
+
+
+            var paras = document.getElementsByTagName("p");
+            for(var i =0; i< paras.length ;i++){
+                var title_text = paras[i].getAttribute("title");
+                if(title_text !== null){
+                    paras[i].setAttribute("title","brand new title text");
+                    alert(title_text);
+                }
+                else{
+                    paras[i].setAttribute("title","There is no title here.");
+                    alert(paras[i].getAttribute("title"));
+                }
+            }
+            */
+
+            /*
+            var paras = document.getElementsByTagName("p");
+            for(var i =0; i< paras.length ;i++){
+                var title_text = paras[i].getAttribute("title");
+                if(title_text !== null){
+                    paras[i].setAttribute("title","brand new title text");
+                    alert(title_text);
+                }
+                else{
+                    var title2 = paras[i].getAttribute("title");
+                    paras[i].setAttribute("title","There is no title here.");
+                    alert(title2);
+                }
+            }
+            //bug~~~
+            //第二种方法？？
+            */
+
+
+
+        </script>
+    </body>
+</html>
